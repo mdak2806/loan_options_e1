@@ -17,6 +17,7 @@ const BASE_URL = 'http://universities.hipolabs.com/search?country=Australia'
 export const Table = () => {
     // set states 
     const [universities, setUniversities] = useState({});
+    const [loadInformation, setLoadInformation] = useState(false);
 
     useEffect(() => {
         const fetchData = () => {
@@ -33,13 +34,39 @@ export const Table = () => {
         fetchData()
 
         console.log('universities', universities);
-
-
     }, []);
 
 
-    // loading of data
+    // loading of data function
+    function loadData () {
 
+
+        setLoadInformation(true);
+        console.log(loadInformation);
+
+
+
+            // return(
+
+            //     <div> 
+            //     {
+            //         universities.map((r) =>
+                    
+            //         <div key={r.name}> 
+            //             <p>Country</p>
+            //             <p>{r.country}</p>
+            //             <p>{r.name}</p>
+            //         </div>
+
+            //         )
+            //     }
+           
+            // </div>
+            // )
+
+        
+
+    }
 
     // deleting the final column
 
@@ -52,6 +79,43 @@ export const Table = () => {
         <section>
             <div>
                 <h1>Working</h1>
+                <button onClick= {loadData} >Load Data</button>
+                <button>Delete Data</button>
+                <button>Add Data</button>
+
+                {<div> 
+                        {
+                            loadInformation === false
+                            ?
+                            (
+                                <div> </div>
+                            )
+                            :
+                            (
+                                <div>  
+                                {
+                                    universities.map((r) =>
+                                                                                                
+                                    <div key={r.name}> 
+                                    <p>Country</p>
+                                    <p>{r.country}</p>
+                                    <p>{r.name}</p>
+                                    </div>
+                                    )
+                                }
+                            
+                                </div>
+
+                            )
+
+                        }
+               
+
+
+                </div> 
+                
+                }
+
             </div>
         </section>
     )
