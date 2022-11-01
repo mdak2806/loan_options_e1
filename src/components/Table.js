@@ -40,31 +40,13 @@ export const Table = () => {
     // loading of data function
     function loadData () {
 
+        if( loadInformation === false){
+            setLoadInformation(true);
 
-        setLoadInformation(true);
+        } else{
+            setLoadInformation(false)
+        }
         console.log(loadInformation);
-
-
-
-            // return(
-
-            //     <div> 
-            //     {
-            //         universities.map((r) =>
-                    
-            //         <div key={r.name}> 
-            //             <p>Country</p>
-            //             <p>{r.country}</p>
-            //             <p>{r.name}</p>
-            //         </div>
-
-            //         )
-            //     }
-           
-            // </div>
-            // )
-
-        
 
     }
 
@@ -97,9 +79,11 @@ export const Table = () => {
                                     universities.map((r) =>
                                                                                                 
                                     <div key={r.name}> 
-                                    <p>Country</p>
+                                    <p>{r.alpha_two_code}</p>
                                     <p>{r.country}</p>
                                     <p>{r.name}</p>
+                                    <p>{r.domains[0]}</p>
+                                    <p>{r.web_pages[0]}</p>
                                     </div>
                                     )
                                 }
