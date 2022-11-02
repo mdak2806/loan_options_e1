@@ -16,8 +16,9 @@ const BASE_URL = 'http://universities.hipolabs.com/search?country=Australia'
 
 export const Table = () => {
     // set states 
-    const [universities, setUniversities] = useState({});
+    const [universities, setUniversities] = useState([]);
     const [loadInformation, setLoadInformation] = useState(false);
+    const [updatedUniversities, setUpdatedUniversities] = useState([]);
 
     useEffect(() => {
         const fetchData = () => {
@@ -47,6 +48,32 @@ export const Table = () => {
             setLoadInformation(false)
         }
         console.log(loadInformation);
+        console.log('universities all', universities)
+
+    }
+
+    function deleteData () {
+        
+        // setUniversities('change');
+        // setLoadInformation(false);
+        setUniversities(universities.slice(0, -1));
+        console.log('remove last', universities)
+
+
+        // const newV = universities.slice(0, -1)
+        // console.log('newV', newV)
+        // if(newV.length != universities.length){
+        //     // console.log(updatedUniversities);
+        //     setUniversities(newV);
+        // }
+        // setUpdatedUniversities(universities.slice(0, -1));
+        // // let updatedUniversities = universities.pop();
+        // console.log(updatedUniversities)
+        
+
+        
+        // loadData();
+   
 
     }
 
@@ -62,7 +89,7 @@ export const Table = () => {
             <div>
                 <h1>Working</h1>
                 <button onClick= {loadData} >Load Data</button>
-                <button>Delete Data</button>
+                <button onClick= {deleteData}>Delete Data</button>
                 <button>Add Data</button>
 
                 {<div> 
@@ -75,7 +102,7 @@ export const Table = () => {
                             :
                             (
                                 <div>  
-                                {
+                                {/* {
                                     universities.map((r) =>
                                                                                                 
                                     <div key={r.name}> 
@@ -86,7 +113,7 @@ export const Table = () => {
                                     <p>{r.web_pages[0]}</p>
                                     </div>
                                     )
-                                }
+                                } */}
                             
                                 </div>
 
