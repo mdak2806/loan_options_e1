@@ -57,24 +57,19 @@ export const Table = () => {
         // setUniversities('change');
         // setLoadInformation(false);
         setUniversities(universities.slice(0, -1));
-        console.log('remove last', universities)
-
-
-        // const newV = universities.slice(0, -1)
-        // console.log('newV', newV)
-        // if(newV.length != universities.length){
-        //     // console.log(updatedUniversities);
-        //     setUniversities(newV);
-        // }
-        // setUpdatedUniversities(universities.slice(0, -1));
-        // // let updatedUniversities = universities.pop();
-        // console.log(updatedUniversities)
-        
-
+        console.log('remove last', universities)        
         
         // loadData();
    
 
+    }
+    
+    function addData(){
+
+        let addElement = universities[0]
+        // console.log(addElement);
+        setUniversities(universities.concat(addElement));
+        console.log('add', universities)
     }
 
     // deleting the final column
@@ -90,7 +85,7 @@ export const Table = () => {
                 <h1>Working</h1>
                 <button onClick= {loadData} >Load Data</button>
                 <button onClick= {deleteData}>Delete Data</button>
-                <button>Add Data</button>
+                <button onClick= {addData}>Add Data</button>
 
                 {<div> 
                         {
@@ -102,7 +97,7 @@ export const Table = () => {
                             :
                             (
                                 <div>  
-                                {/* {
+                                {
                                     universities.map((r) =>
                                                                                                 
                                     <div key={r.name}> 
@@ -113,7 +108,7 @@ export const Table = () => {
                                     <p>{r.web_pages[0]}</p>
                                     </div>
                                     )
-                                } */}
+                                }
                             
                                 </div>
 
